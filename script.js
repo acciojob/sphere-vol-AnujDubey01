@@ -1,4 +1,4 @@
-function volume_sphere() {
+function volume_sphere(event) {
     //Write your code here
 	let rad = parseFloat(document.getElementById('radius').value);
 let volumeField = document.getElementById('volume');
@@ -7,9 +7,10 @@ let volumeField = document.getElementById('volume');
 		volumeField.value = 'NaN';
 		return;
 	}
-
+	
 	let volume = (4 / 3) * Math.PI * Math.pow(rad, 3);
 	volumeField.value = volume.toFixed(4); // rounding to 4 decimal places
 }
-
-window.onload = document.getElementById('MyForm').onsubmit = volume_sphere;
+window.onload = function () {
+	document.getElementById('MyForm').onsubmit = volume_sphere;
+};
